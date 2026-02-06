@@ -1,0 +1,131 @@
+import { Link } from "react-router-dom";
+import { Heart, Users, Shield, Clock, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import heroImage from "@/assets/betterPicture.jpg";
+
+const Index = () => {
+  const features = [
+    {
+      icon: Heart,
+      title: "Individuelle Betreuung",
+      description:
+        "Jeder Mensch ist einzigartig. Ich biete maßgeschneiderte Betreuung, die auf Ihre persönlichen Bedürfnisse eingeht.",
+    },
+    {
+      icon: Users,
+      title: "Soziale Integration",
+      description:
+        "Gemeinsam fördern wir Ihre Teilhabe am gesellschaftlichen Leben und stärken soziale Kontakte.",
+    },
+    {
+      icon: Shield,
+      title: "Vertrauensvoll & Sicher",
+      description:
+        "Diskretion und Professionalität stehen bei mir an erster Stelle. Sie können sich auf mich verlassen.",
+    },
+    {
+      icon: Clock,
+      title: "Flexibel & Zuverlässig",
+      description:
+        "Ich passe mich Ihrem Zeitplan an und bin verlässlich für Sie da, wenn Sie mich brauchen.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
+          <div className="container mx-auto px-4 py-20 lg:py-32 relative">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-in fade-in-50 slide-in-from-left-4 duration-700">
+                  Alltag leichter. Selbstbestimmt leben.
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground animate-in fade-in-50 slide-in-from-left-4 duration-700 delay-150">
+                  Ich bin Sven Thamm und unterstütze Sie dort, wo es im Alltag wirklich hilft – unbürokratisch, verlässlich und auf Augenhöhe.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-in fade-in-50 slide-in-from-left-4 duration-700 delay-300">
+                  <Button asChild variant="hero" size="lg">
+                    <Link to="/kontakt">
+                      Unverbindlich anfragen <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" size="lg">
+                    <Link to="/leistungen">Meine Leistungen</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="relative lg:h-[500px] h-[300px] rounded-2xl overflow-hidden shadow-[var(--shadow-medium)] animate-in fade-in-50 slide-in-from-right-4 duration-700">
+                <img
+                  src={heroImage}
+                  alt="Soziale Unterstützung im Alltag"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Warum ich die richtige Wahl bin</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Professionelle Unterstützung, die auf Vertrauen, Respekt und individueller Förderung basiert
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <Card
+                  key={index}
+                  className="border-2 hover:border-primary/50 transition-all hover:shadow-[var(--shadow-soft)] hover:-translate-y-1 animate-in fade-in-50 slide-in-from-bottom-4 duration-700"
+                  style={{ animationDelay: `${index * 120 + 100}ms` }}
+                >
+                  <CardContent className="pt-6 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                      <feature.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <CardContent className="p-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für ein kostenloses Erstgespräch?</h2>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Lassen Sie uns gemeinsam herausfinden, wie ich Sie am besten unterstützen kann. Kontaktieren Sie mich noch heute!
+                </p>
+                <Button asChild variant="hero" size="lg">
+                  <Link to="/kontakt">
+                    Jetzt Termin vereinbaren <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;
+
