@@ -20,7 +20,7 @@ const UnserTeam = () => {
       role: "Sachbearbeiterin",
       bio:
         "Bringt Ruhe und Klarheit in herausfordernde Situationen und findet praxisnahe Loesungen gemeinsam mit Klientinnen und Klienten.",
-      image: Profilbild,
+      image: betterPicture,
     },
     {
       name: "Hendrik",
@@ -34,7 +34,7 @@ const UnserTeam = () => {
       role: "Organisation & Koordination",
       bio:
         "Sorgt fuer Struktur, gute Ablaeufe und die richtige Portion Gelassenheit - damit Unterstuetzung leicht wird.",
-      image: betterPicture,
+      image: Profilbild,
     },
   ];
 
