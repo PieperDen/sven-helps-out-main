@@ -1,78 +1,50 @@
 import { Link } from "react-router-dom";
-import { Heart, Mail, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-muted/50 border-t mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Heart className="h-5 w-5 text-primary fill-current" />
-              <span className="font-bold text-lg">Sven Thamm</span>
+    <footer className="relative mt-24 border-t border-border/70 bg-card/70 backdrop-blur">
+      <div className="container relative mx-auto px-4 py-14">
+        <div className="mb-10 grid gap-8 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="inline-flex items-center gap-3 rounded-2xl border border-primary/25 bg-primary/10 px-4 py-2 text-primary">
+              <span className="text-xl leading-none">§</span>
+              <span className="font-semibold">Sven Thamm</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Professionelle soziale Betreuung mit Herz und Engagement
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+              Berufliche Betreuung in Kiel mit klarem Fokus auf Verlaesslichkeit, Struktur und menschliche Naehe.
             </p>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Navigation</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Start
-                </Link>
-              </li>
-              <li>
-                <Link to="/leistungen" className="text-muted-foreground hover:text-primary transition-colors">
-                  Meine Leistungen
-                </Link>
-              </li>
-              <li>
-                <Link to="/ueber-mich" className="text-muted-foreground hover:text-primary transition-colors">
-                  Unser Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/kontakt" className="text-muted-foreground hover:text-primary transition-colors">
-                  Kontakt
-                </Link>
-              </li>
-              <li>
-                <Link to="/wo-du-uns-findest" className="text-muted-foreground hover:text-primary transition-colors">
-                  Wo du uns findest
-                </Link>
-              </li>
-              <li>
-                <Link to="/impressum" className="text-muted-foreground hover:text-primary transition-colors">
-                  Impressum
-                </Link>
-              </li>
-            </ul>
+          <div className="md:col-span-3">
+            <p className="mb-3 text-sm font-semibold">Navigation</p>
+            <div className="grid gap-2 text-sm text-muted-foreground">
+              <Link to="/" className="hover:text-primary">Start</Link>
+              <Link to="/leistungen" className="hover:text-primary">Leistungen</Link>
+              <Link to="/ueber-mich" className="hover:text-primary">Unser Team</Link>
+              <Link to="/kontakt" className="hover:text-primary">Kontakt</Link>
+            </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4">Kontakt</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+491234567890" className="hover:text-primary transition-colors">
-                  +49 (0) 123 456 7890
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground">
-                <Mail className="h-4 w-4 text-primary" />
-                <a href="mailto:sven.thamm@btkiel.de" className="hover:text-primary transition-colors">
-                  sven.thamm@btkiel.de
-                </a>
-              </li>
-            </ul>
+          <div className="md:col-span-4">
+            <p className="mb-3 text-sm font-semibold">Kontakt in Kiel</p>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <a href="tel:+491234567890" className="flex items-center gap-2 hover:text-primary">
+                <Phone className="h-4 w-4" /> +49 (0) 123 456 7890
+              </a>
+              <a href="mailto:sven.thamm@btkiel.de" className="flex items-center gap-2 hover:text-primary">
+                <Mail className="h-4 w-4" /> sven.thamm@btkiel.de
+              </a>
+              <p className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" /> Lorentzendamm 6-8, 24103 Kiel
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
+        <div className="flex flex-col gap-2 border-t border-border/70 pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Sven Thamm. Alle Rechte vorbehalten.</p>
+          <Link to="/impressum" className="hover:text-primary">Impressum und Datenschutz</Link>
         </div>
       </div>
     </footer>

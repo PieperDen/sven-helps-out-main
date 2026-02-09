@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 import betterPicture from "@/assets/betterPicture.jpg";
 import Profilbild from "@/assets/Profilbild.png";
 import SvenThamm from "@/assets/SvenThamm.jpg";
@@ -10,162 +10,65 @@ const UnserTeam = () => {
   const team = [
     {
       name: "Sven Thamm",
-      role: "Inhaber & Betreuung",
-      bio:
-        "Ich begleite Menschen mit Herz, Verlaesslichkeit und Struktur - immer auf Augenhoehe und mit Blick auf das, was wirklich hilft.",
+      role: "Inhaber und Beruflicher Betreuer",
+      bio: "Ich begleite Menschen mit Verlaesslichkeit, Respekt und einer klaren Struktur, damit Entscheidungen nachvollziehbar und alltagstauglich bleiben.",
       image: SvenThamm,
     },
     {
       name: "Jessica",
-      role: "Sachbearbeiterin",
-      bio:
-        "Bringt Ruhe und Klarheit in herausfordernde Situationen und findet praxisnahe Loesungen gemeinsam mit Klientinnen und Klienten.",
+      role: "Sachbearbeitung",
+      bio: "Bringt Ordnung in komplexe Unterlagen, haelt Prozesse transparent und sorgt fuer klare Rueckmeldungen.",
       image: betterPicture,
     },
     {
       name: "Hendrik",
-      role: "Sachbearbeiter",
-      bio:
-        "Packt an, hoert zu und unterstuetzt dort, wo es im Alltag wirklich zaehlt - zuverlaessig und menschlich.",
+      role: "Sachbearbeitung",
+      bio: "Unterstuetzt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise.",
       image: betterPicture,
     },
     {
       name: "Dennis Pieper",
-      role: "Organisation & Koordination",
-      bio:
-        "Sorgt fuer Struktur, gute Ablaeufe und die richtige Portion Gelassenheit - damit Unterstuetzung leicht wird.",
+      role: "Organisation und Koordination",
+      bio: "Sorgt fuer abgestimmte Ablaeufe und eine zuverlaessige Termin- und Kommunikationsstruktur.",
       image: Profilbild,
     },
   ];
 
-  const itemRefs = useRef<(HTMLElement | null)[]>([]);
-  const [visibleIndices, setVisibleIndices] = useState<Set<number>>(new Set([0]));
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const idxAttr = (entry.target as HTMLElement).dataset.index;
-          const idx = idxAttr ? Number(idxAttr) : -1;
-          if (idx < 0) return;
-          setVisibleIndices((prev) => {
-            if (prev.has(idx)) return prev;
-            const next = new Set(prev);
-            next.add(idx);
-            return next;
-          });
-        });
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" },
-    );
-
-    itemRefs.current.forEach((el, idx) => {
-      if (el) {
-        (el as HTMLElement).dataset.index = String(idx);
-        obs.observe(el);
-      }
-    });
-    return () => obs.disconnect();
-  }, []);
-
-  const makeSetRef = (idx: number) => (el: HTMLElement | null) => {
-    itemRefs.current[idx] = el;
-    if (el) (el as HTMLElement).dataset.index = String(idx);
-  };
-
-  const TeamMemberCard = ({
-    member,
-    index,
-  }: {
-    member: typeof team[number];
-    index: number;
-  }) => {
-    const isLeft = index % 2 === 0;
-    const visible = visibleIndices.has(index);
-
-    const cardClasses = [
-      "rounded-2xl md:rounded-3xl border border-border/60 overflow-hidden bg-gradient-to-br from-background to-muted/30 shadow-[var(--shadow-soft)] transition-all duration-700 ease-out will-change-transform",
-      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-    ].join(" ");
-
-    const imgWrapperClasses = [
-      isLeft ? "md:order-1" : "md:order-2",
-      "order-1 h-72 md:h-full bg-muted/40 transition duration-700 ease-out will-change-transform",
-      visible ? "translate-x-0 opacity-100" : isLeft ? "-translate-x-10 opacity-0" : "translate-x-10 opacity-0",
-    ].join(" ");
-
-    const textWrapperClasses = [
-      isLeft ? "md:order-2" : "md:order-1",
-      "order-2 p-8 md:p-10 flex flex-col justify-center gap-3 transition duration-700 ease-out will-change-transform",
-      visible ? "translate-x-0 opacity-100" : isLeft ? "translate-x-8 opacity-0" : "-translate-x-8 opacity-0",
-    ].join(" ");
-
-    return (
-      <Card className={cardClasses}>
-        <CardContent className="p-0">
-          <div className="grid md:grid-cols-2">
-            <div className={imgWrapperClasses} style={{ transitionDelay: index * 60 + 60 + "ms" }}>
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover will-change-transform"
-                loading="lazy"
-              />
-            </div>
-            <div className={textWrapperClasses} style={{ transitionDelay: index * 60 + 120 + "ms" }}>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">{member.name}</h3>
-              <p className="text-primary font-semibold">{member.role}</p>
-              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">{member.bio}</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
-        <section className="relative overflow-hidden py-20 md:py-24">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
-          <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
-          <div className="absolute top-1/3 -right-24 h-72 w-72 rounded-full bg-secondary/15 blur-3xl" />
-          <div className="container mx-auto px-4 relative">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12 md:mb-16">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-in fade-in-50 slide-in-from-top-4 duration-700">
-                  Unser Team
-                </h1>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-in fade-in-50 slide-in-from-top-4 duration-700 delay-150">
-                  Persoenlich, professionell und menschlich - wir sind fuer Sie da.
-                </p>
-              </div>
-
-              <div className="mb-10 text-center text-sm tracking-[0.15em] uppercase text-muted-foreground/80">
-                Scrollen Sie entspannt durch unser Team
-              </div>
-
-              <div className="space-y-10 md:space-y-14">
-                {team.map((member, index) => (
-                <section
-                  key={member.name}
-                  ref={makeSetRef(index)}
-                  className="min-h-[72vh] md:min-h-[76vh] flex items-center"
-                >
-                  <TeamMemberCard member={member} index={index} />
-                </section>
-                ))}
-              </div>
-
-              <div className="mt-16 text-center text-muted-foreground">
-                <p>
-                  Moechten Sie uns kennenlernen? Wir freuen uns auf Ihre Nachricht.
-                </p>
-              </div>
+      <main className="relative z-10 flex-1">
+        <section className="container mx-auto px-4 pb-12 pt-10 md:pt-14">
+          <Reveal>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <span className="eyebrow">Unser Team</span>
+              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Persoenlich. Klar. Zuverlaessig.</h1>
+              <p className="section-copy mt-5">
+                Gute Betreuung ist Teamarbeit. Jede Person im Buero traegt dazu bei, dass Anliegen schnell, professionell und respektvoll bearbeitet werden.
+              </p>
             </div>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {team.map((member, index) => (
+              <Reveal key={member.name} delayClass={index % 2 === 0 ? "" : "stagger-1"}>
+                <Card className="premium-card overflow-hidden rounded-3xl">
+                  <CardContent className="p-0">
+                    <div className="grid min-h-[390px] md:grid-cols-2">
+                      <div className="h-64 md:h-full">
+                        <img src={member.image} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
+                      </div>
+                      <div className="flex flex-col justify-center p-6 md:p-7">
+                        <h3 className="text-2xl font-semibold">{member.name}</h3>
+                        <p className="mt-1 text-sm font-medium text-primary">{member.role}</p>
+                        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            ))}
           </div>
         </section>
       </main>

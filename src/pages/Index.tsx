@@ -1,124 +1,210 @@
 import { Link } from "react-router-dom";
-import { Heart, Users, Shield, Clock, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  Handshake,
+  HeartHandshake,
+  MapPinned,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/betterPicture.jpg";
+import heroImage from "@/assets/SvenThamm.jpg";
+import Reveal from "@/components/Reveal";
 
 const Index = () => {
-  const features = [
+  const highlights = [
     {
-      icon: Heart,
-      title: "Individuelle Betreuung",
-      description:
-        "Jeder Mensch ist einzigartig. Ich biete maßgeschneiderte Betreuung, die auf Ihre persönlichen Bedürfnisse eingeht.",
+      icon: ShieldCheck,
+      title: "Rechtssichere Betreuung",
+      text: "Klare Vertretung in persoenlichen, gesundheitlichen und finanziellen Angelegenheiten.",
     },
     {
       icon: Users,
-      title: "Soziale Integration",
-      description:
-        "Gemeinsam fördern wir Ihre Teilhabe am gesellschaftlichen Leben und stärken soziale Kontakte.",
+      title: "Menschlich und verbindlich",
+      text: "Zusammenarbeit auf Augenhoehe mit Klientinnen, Klienten und Angehoerigen.",
     },
     {
-      icon: Shield,
-      title: "Vertrauensvoll & Sicher",
-      description:
-        "Diskretion und Professionalität stehen bei mir an erster Stelle. Sie können sich auf mich verlassen.",
-    },
-    {
-      icon: Clock,
-      title: "Flexibel & Zuverlässig",
-      description:
-        "Ich passe mich Ihrem Zeitplan an und bin verlässlich für Sie da, wenn Sie mich brauchen.",
+      icon: MapPinned,
+      title: "In Kiel verankert",
+      text: "Kurze Wege, feste Ansprechpartner und schnelle Erreichbarkeit vor Ort.",
     },
   ];
 
+  const process = [
+    {
+      step: "01",
+      title: "Erstgespraech",
+      text: "Wir klaeren Ihre Situation, Prioritaeten und den konkreten Unterstuetzungsbedarf.",
+      icon: Handshake,
+    },
+    {
+      step: "02",
+      title: "Strukturierter Plan",
+      text: "Sie erhalten einen nachvollziehbaren Ablauf mit klaren Zustaendigkeiten.",
+      icon: CalendarDays,
+    },
+    {
+      step: "03",
+      title: "Verlaessliche Begleitung",
+      text: "Ich setze die vereinbarten Schritte konsequent um und halte Sie informiert.",
+      icon: CheckCircle2,
+    },
+  ];
+
+  const facts = [
+    { label: "Antwortzeit", value: "< 24h" },
+    { label: "Region", value: "Kiel + Umkreis" },
+    { label: "Erreichbar", value: "Mo-Fr 9-19 Uhr" },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
-          <div className="container mx-auto px-4 py-20 lg:py-32 relative">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-in fade-in-50 slide-in-from-left-4 duration-700">
-                  Alltag leichter. Selbstbestimmt leben.
-                </h1>
-                <p className="text-lg md:text-xl text-muted-foreground animate-in fade-in-50 slide-in-from-left-4 duration-700 delay-150">
-                  Ich bin Sven Thamm und unterstütze Sie dort, wo es im Alltag wirklich hilft – unbürokratisch, verlässlich und auf Augenhöhe.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-in fade-in-50 slide-in-from-left-4 duration-700 delay-300">
-                  <Button asChild variant="hero" size="lg">
-                    <Link to="/kontakt">
-                      Unverbindlich anfragen <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <Link to="/leistungen">Meine Leistungen</Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="relative lg:h-[500px] h-[300px] rounded-2xl overflow-hidden shadow-[var(--shadow-medium)] animate-in fade-in-50 slide-in-from-right-4 duration-700">
-                <img
-                  src={heroImage}
-                  alt="Soziale Unterstützung im Alltag"
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Warum ich die richtige Wahl bin</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professionelle Unterstützung, die auf Vertrauen, Respekt und individueller Förderung basiert
+      <main className="relative z-10 flex-1">
+        <section className="container mx-auto px-4 pb-12 pt-10 md:pb-16 md:pt-14">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <Reveal className="lg:col-span-7">
+              <span className="eyebrow">Berufliche Betreuung in Kiel</span>
+              <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-6xl">
+                Verlaessliche rechtliche Betreuung. Menschlich, strukturiert und erreichbar.
+              </h1>
+              <p className="section-copy mt-6 max-w-2xl">
+                Ich begleite Menschen in anspruchsvollen Lebenslagen mit klarer Organisation,
+                respektvoller Kommunikation und einem festen Blick auf Selbstbestimmung.
               </p>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {features.map((feature, index) => (
-                <Card
-                  key={index}
-                  className="border-2 hover:border-primary/50 transition-all hover:shadow-[var(--shadow-soft)] hover:-translate-y-1 animate-in fade-in-50 slide-in-from-bottom-4 duration-700"
-                  style={{ animationDelay: `${index * 120 + 100}ms` }}
-                >
-                  <CardContent className="pt-6 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                      <feature.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
-              <CardContent className="p-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Bereit für ein kostenloses Erstgespräch?</h2>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Lassen Sie uns gemeinsam herausfinden, wie ich Sie am besten unterstützen kann. Kontaktieren Sie mich noch heute!
-                </p>
-                <Button asChild variant="hero" size="lg">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg" className="rounded-xl">
                   <Link to="/kontakt">
-                    Jetzt Termin vereinbaren <ArrowRight className="ml-2 h-5 w-5" />
+                    Erstgespraech anfragen <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/30">
+                  <Link to="/leistungen">Leistungen ansehen</Link>
+                </Button>
+              </div>
+
+              <div className="mt-9 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">
+                {facts.map((fact) => (
+                  <div key={fact.label} className="rounded-2xl border border-border/80 bg-card/80 px-4 py-3">
+                    <p className="text-xs uppercase tracking-[0.12em] text-muted-foreground">{fact.label}</p>
+                    <p className="mt-1 text-sm font-semibold">{fact.value}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-5" delayClass="stagger-1">
+              <div className="glass-panel overflow-hidden rounded-3xl p-3">
+                <div className="relative overflow-hidden rounded-2xl">
+                  <img src={heroImage} alt="Sven Thamm in Kiel" className="h-[420px] w-full object-cover" />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent p-5 text-white">
+                    <p className="text-sm font-semibold">Sven Thamm</p>
+                    <p className="text-xs text-white/85">Beruflicher Betreuer</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-8 md:py-12">
+          <Reveal>
+            <div className="mb-8 text-center">
+              <h2 className="section-title">Warum Mandantinnen und Mandanten auf diese Betreuung setzen</h2>
+            </div>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3">
+            {highlights.map((item, idx) => (
+              <Reveal key={item.title} delayClass={idx === 0 ? "" : idx === 1 ? "stagger-1" : "stagger-2"}>
+                <Card className="premium-card h-full rounded-3xl">
+                  <CardContent className="p-7">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-14">
+          <Reveal>
+            <div className="mb-10 text-center">
+              <span className="eyebrow">So laeuft es ab</span>
+              <h2 className="section-title mt-4">Ein klarer Ablauf, der Sicherheit gibt</h2>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {process.map((item, idx) => (
+              <Reveal key={item.title} delayClass={idx === 0 ? "" : idx === 1 ? "stagger-1" : "stagger-2"}>
+                <div className="premium-card h-full rounded-3xl p-6">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="text-xs font-semibold tracking-[0.18em] text-primary">{item.step}</span>
+                    <item.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-16">
+          <Reveal>
+            <Card className="overflow-hidden rounded-3xl border-0 text-primary-foreground" style={{ backgroundImage: "var(--gradient-cta)" }}>
+              <CardContent className="grid gap-6 p-8 md:grid-cols-12 md:items-center md:p-12">
+                <div className="md:col-span-8">
+                  <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium">
+                    <BadgeCheck className="h-4 w-4" />
+                    Vertraulich, transparent, verbindlich
+                  </div>
+                  <h2 className="text-3xl font-semibold md:text-4xl">Zeit fuer ein ruhiges, klares Erstgespraech?</h2>
+                  <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 md:text-base">
+                    Sie schildern Ihre Situation, ich erklaere die naechsten Schritte. Ohne Druck, aber mit Plan.
+                  </p>
+                </div>
+                <div className="md:col-span-4 md:justify-self-end">
+                  <Button asChild size="lg" variant="secondary" className="w-full rounded-xl bg-white text-primary hover:bg-white/90">
+                    <Link to="/kontakt">
+                      Jetzt Kontakt aufnehmen <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <p className="mt-3 text-xs text-primary-foreground/85">Alternativ direkt telefonisch erreichbar.</p>
+                  <a href="tel:+491234567890" className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary-foreground hover:text-white">
+                    <Clock3 className="h-4 w-4" /> +49 (0) 123 456 7890
+                  </a>
+                </div>
               </CardContent>
             </Card>
-          </div>
+          </Reveal>
+        </section>
+
+        <section className="container mx-auto px-4 pb-14">
+          <Reveal>
+            <div className="rounded-3xl border border-border/75 bg-card/70 p-8">
+              <div className="mb-4 flex items-center gap-3 text-primary">
+                <HeartHandshake className="h-5 w-5" />
+                <span className="text-sm font-semibold uppercase tracking-[0.14em]">Vertrauensanker</span>
+              </div>
+              <p className="section-copy max-w-4xl">
+                Berufliche Betreuung bedeutet fuer mich: klare Entscheidungen, dokumentierte Prozesse und ein respektvoller Umgang in jeder Situation. Genau diese Mischung aus Fachlichkeit und Menschlichkeit soll auf dieser Website sichtbar sein.
+              </p>
+            </div>
+          </Reveal>
         </section>
       </main>
 
@@ -128,4 +214,3 @@ const Index = () => {
 };
 
 export default Index;
-
