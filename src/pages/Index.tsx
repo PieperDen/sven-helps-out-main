@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Clock3,
   Handshake,
-  HeartHandshake,
   MapPinned,
   ShieldCheck,
   Users,
@@ -15,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/SvenThamm.jpg";
+import heroImage from "@/assets/betterPicture.jpg";
 import Reveal from "@/components/Reveal";
 
 const Index = () => {
@@ -23,43 +22,42 @@ const Index = () => {
     {
       icon: ShieldCheck,
       title: "Rechtssichere Betreuung",
-      text: "Klare Vertretung in persoenlichen, gesundheitlichen und finanziellen Angelegenheiten.",
+      text: "Klare Vertretung in persönlichen, gesundheitlichen und finanziellen Angelegenheiten nach gerichtlichem Auftrag.",
     },
     {
       icon: Users,
       title: "Menschlich und verbindlich",
-      text: "Zusammenarbeit auf Augenhoehe mit Klientinnen, Klienten und Angehoerigen.",
+      text: "Zusammenarbeit auf Augenhöhe mit Klientinnen, Klienten und Angehörigen.",
     },
     {
       icon: MapPinned,
       title: "In Kiel verankert",
-      text: "Kurze Wege, feste Ansprechpartner und schnelle Erreichbarkeit vor Ort.",
+      text: "Kurze Wege in Kiel, feste Ansprechpartner und schnelle Erreichbarkeit vor Ort.",
     },
   ];
 
   const process = [
     {
       step: "01",
-      title: "Erstgespraech",
-      text: "Wir klaeren Ihre Situation, Prioritaeten und den konkreten Unterstuetzungsbedarf.",
+      title: "Erstgespräch",
+      text: "Wir klären Ihre Situation, Prioritäten und den konkreten Unterstützungsbedarf.",
       icon: Handshake,
     },
     {
       step: "02",
       title: "Strukturierter Plan",
-      text: "Sie erhalten einen nachvollziehbaren Ablauf mit klaren Zustaendigkeiten.",
+      text: "Sie erhalten einen nachvollziehbaren Ablauf mit klaren Zuständigkeiten.",
       icon: CalendarDays,
     },
     {
       step: "03",
-      title: "Verlaessliche Begleitung",
+      title: "Verlässliche Begleitung",
       text: "Ich setze die vereinbarten Schritte konsequent um und halte Sie informiert.",
       icon: CheckCircle2,
     },
   ];
 
   const facts = [
-    { label: "Antwortzeit", value: "< 24h" },
     { label: "Region", value: "Kiel + Umkreis" },
     { label: "Erreichbar", value: "Mo-Fr 9-19 Uhr" },
   ];
@@ -74,21 +72,25 @@ const Index = () => {
             <Reveal className="lg:col-span-7">
               <span className="eyebrow">Berufliche Betreuung in Kiel</span>
               <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-6xl">
-                Verlaessliche rechtliche Betreuung. Menschlich, strukturiert und erreichbar.
+                Verlässliche rechtliche Betreuung. Menschlich, strukturiert und erreichbar.
               </h1>
               <p className="section-copy mt-6 max-w-2xl">
-                Ich begleite Menschen in anspruchsvollen Lebenslagen mit klarer Organisation,
-                respektvoller Kommunikation und einem festen Blick auf Selbstbestimmung.
+                Ich begleite Menschen in anspruchsvollen Lebenslagen in Kiel und Umgebung mit
+                klarer Organisation, respektvoller Kommunikation und einem festen Blick auf
+                Selbstbestimmung.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="rounded-xl">
                   <Link to="/kontakt">
-                    Erstgespraech anfragen <ArrowRight className="h-4 w-4" />
+                    Erstgespräch anfragen <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/30">
                   <Link to="/leistungen">Leistungen ansehen</Link>
+                </Button>
+                <Button asChild size="lg" variant="ghost" className="rounded-xl">
+                  <Link to="/voraussetzungen">Voraussetzungen prüfen</Link>
                 </Button>
               </div>
 
@@ -103,13 +105,17 @@ const Index = () => {
             </Reveal>
 
             <Reveal className="lg:col-span-5" delayClass="stagger-1">
-              <div className="glass-panel overflow-hidden rounded-3xl p-3">
+              <div className="glass-panel pulse-soft overflow-hidden rounded-3xl p-3">
                 <div className="relative overflow-hidden rounded-2xl">
-                  <img src={heroImage} alt="Sven Thamm in Kiel" className="h-[420px] w-full object-cover" />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent p-5 text-white">
-                    <p className="text-sm font-semibold">Sven Thamm</p>
-                    <p className="text-xs text-white/85">Beruflicher Betreuer</p>
-                  </div>
+                  <img
+                    src={heroImage}
+                    alt="Sven Thamm in Kiel"
+                    className="h-[420px] w-full object-cover"
+                    decoding="async"
+                    fetchPriority="high"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent p-5 text-white" />
                 </div>
               </div>
             </Reveal>
@@ -125,9 +131,9 @@ const Index = () => {
           <div className="grid gap-5 md:grid-cols-3">
             {highlights.map((item, idx) => (
               <Reveal key={item.title} delayClass={idx === 0 ? "" : idx === 1 ? "stagger-1" : "stagger-2"}>
-                <Card className="premium-card h-full rounded-3xl">
+                <Card className="premium-card group h-full rounded-3xl">
                   <CardContent className="p-7">
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                       <item.icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -142,7 +148,7 @@ const Index = () => {
         <section className="container mx-auto px-4 py-14">
           <Reveal>
             <div className="mb-10 text-center">
-              <span className="eyebrow">So laeuft es ab</span>
+              <span className="eyebrow">So läuft es ab</span>
               <h2 className="section-title mt-4">Ein klarer Ablauf, der Sicherheit gibt</h2>
             </div>
           </Reveal>
@@ -150,10 +156,10 @@ const Index = () => {
           <div className="grid gap-5 md:grid-cols-3">
             {process.map((item, idx) => (
               <Reveal key={item.title} delayClass={idx === 0 ? "" : idx === 1 ? "stagger-1" : "stagger-2"}>
-                <div className="premium-card h-full rounded-3xl p-6">
+                <div className="premium-card group h-full rounded-3xl p-6">
                   <div className="mb-5 flex items-center justify-between">
                     <span className="text-xs font-semibold tracking-[0.18em] text-primary">{item.step}</span>
-                    <item.icon className="h-5 w-5 text-primary" />
+                    <item.icon className="h-5 w-5 text-primary transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                   <h3 className="text-xl font-semibold">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
@@ -172,9 +178,9 @@ const Index = () => {
                     <BadgeCheck className="h-4 w-4" />
                     Vertraulich, transparent, verbindlich
                   </div>
-                  <h2 className="text-3xl font-semibold md:text-4xl">Zeit fuer ein ruhiges, klares Erstgespraech?</h2>
+                  <h2 className="text-3xl font-semibold md:text-4xl">Zeit für ein ruhiges, klares Erstgespräch?</h2>
                   <p className="mt-3 max-w-2xl text-sm text-primary-foreground/90 md:text-base">
-                    Sie schildern Ihre Situation, ich erklaere die naechsten Schritte. Ohne Druck, aber mit Plan.
+                    Sie schildern Ihre Situation, ich erkläre die nächsten Schritte. Ohne Druck, aber mit Plan.
                   </p>
                 </div>
                 <div className="md:col-span-4 md:justify-self-end">
@@ -193,19 +199,6 @@ const Index = () => {
           </Reveal>
         </section>
 
-        <section className="container mx-auto px-4 pb-14">
-          <Reveal>
-            <div className="rounded-3xl border border-border/75 bg-card/70 p-8">
-              <div className="mb-4 flex items-center gap-3 text-primary">
-                <HeartHandshake className="h-5 w-5" />
-                <span className="text-sm font-semibold uppercase tracking-[0.14em]">Vertrauensanker</span>
-              </div>
-              <p className="section-copy max-w-4xl">
-                Berufliche Betreuung bedeutet fuer mich: klare Entscheidungen, dokumentierte Prozesse und ein respektvoller Umgang in jeder Situation. Genau diese Mischung aus Fachlichkeit und Menschlichkeit soll auf dieser Website sichtbar sein.
-              </p>
-            </div>
-          </Reveal>
-        </section>
       </main>
 
       <Footer />

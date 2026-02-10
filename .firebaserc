@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "svenhelpsout",
-    "bt": "betreuungsbuerothamm"
+    "default": "betreuungsbuerothamm",
+    "sventhammapp": "sventhammapp"
   },
   "targets": {},
   "etags": {}

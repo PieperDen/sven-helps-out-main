@@ -5,17 +5,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 ease-out transform-gpu focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:transform-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]",
+        default: "bg-primary text-primary-foreground hover:-translate-y-0.5 hover:bg-primary/90 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] hover:[&_svg]:translate-x-0.5",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)]",
+        outline: "border border-input bg-background hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground hover:[&_svg]:translate-x-0.5",
+        secondary: "bg-secondary text-secondary-foreground hover:-translate-y-0.5 hover:bg-secondary/80 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-medium)] hover:[&_svg]:translate-x-0.5",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:scale-105 transition-all shadow-[var(--shadow-medium)] hover:shadow-[var(--shadow-medium)] font-semibold",
+        hero: "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:-translate-y-0.5 hover:scale-[1.02] shadow-[var(--shadow-medium)] hover:shadow-[var(--shadow-medium)] font-semibold hover:[&_svg]:translate-x-0.5",
       },
       size: {
         default: "h-10 px-4 py-2",

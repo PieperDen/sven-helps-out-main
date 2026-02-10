@@ -21,7 +21,7 @@ const Impressum = () => {
             <Reveal>
               <Card className="premium-card rounded-3xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-primary">Angaben gemaess § 5 TMG</CardTitle>
+                  <CardTitle className="text-2xl text-primary">Angaben gemäß § 5 TMG</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-5 text-sm text-muted-foreground">
                   <div>
@@ -44,11 +44,11 @@ const Impressum = () => {
             <Reveal delayClass="stagger-1">
               <Card className="premium-card rounded-3xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-primary">Verantwortlich fuer Inhalte</CardTitle>
+                  <CardTitle className="text-2xl text-primary">Verantwortlich für Inhalte</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm text-muted-foreground">
                   <p>
-                    Verantwortlich fuer den Inhalt nach § 55 Abs. 2 RStV:
+                    Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
                     <br />
                     Sven Thamm
                     <br />
@@ -67,14 +67,14 @@ const Impressum = () => {
                 </CardHeader>
                 <CardContent className="space-y-4 text-sm text-muted-foreground">
                   <div>
-                    <p className="font-semibold text-foreground">Haftung fuer Inhalte</p>
+                    <p className="font-semibold text-foreground">Haftung für Inhalte</p>
                     <p>
-                      Die Inhalte dieser Website wurden mit groesster Sorgfalt erstellt. Fuer Richtigkeit,
-                      Vollstaendigkeit und Aktualitaet kann dennoch keine Gewaehr uebernommen werden.
+                      Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für Richtigkeit,
+                      Vollständigkeit und Aktualität kann dennoch keine Gewähr übernommen werden.
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">Haftung fuer Links</p>
+                    <p className="font-semibold text-foreground">Haftung für Links</p>
                     <p>
                       Bei direkten oder indirekten Verweisen auf fremde Webseiten liegt die Verantwortung
                       beim jeweiligen Betreiber der verlinkten Seiten.
@@ -84,7 +84,7 @@ const Impressum = () => {
                     <p className="font-semibold text-foreground">Urheberrecht</p>
                     <p>
                       Die erstellten Inhalte und Werke unterliegen dem deutschen Urheberrecht.
-                      Vervielfaeltigung und Verwertung beduerfen der schriftlichen Zustimmung.
+                      Vervielfältigung und Verwertung bedürfen der schriftlichen Zustimmung.
                     </p>
                   </div>
                 </CardContent>
@@ -98,8 +98,8 @@ const Impressum = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten moeglich.
-                    Daten werden nur erhoben, wenn dies fuer die Kontaktaufnahme erforderlich ist.
+                    Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.
+                    Daten werden nur erhoben, wenn dies für die Kontaktaufnahme erforderlich ist.
                   </p>
                 </CardContent>
               </Card>

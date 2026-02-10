@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import betterPicture from "@/assets/betterPicture.jpg";
+import heroImage from "@/assets/hero-image.jpg";
 import Profilbild from "@/assets/Profilbild.png";
 import SvenThamm from "@/assets/SvenThamm.jpg";
 
@@ -11,25 +11,25 @@ const UnserTeam = () => {
     {
       name: "Sven Thamm",
       role: "Inhaber und Beruflicher Betreuer",
-      bio: "Ich begleite Menschen mit Verlaesslichkeit, Respekt und einer klaren Struktur, damit Entscheidungen nachvollziehbar und alltagstauglich bleiben.",
+      bio: "Ich begleite Menschen mit Verlässlichkeit, Respekt und einer klaren Struktur, damit Entscheidungen nachvollziehbar und alltagstauglich bleiben.",
       image: SvenThamm,
     },
     {
       name: "Jessica",
       role: "Sachbearbeitung",
-      bio: "Bringt Ordnung in komplexe Unterlagen, haelt Prozesse transparent und sorgt fuer klare Rueckmeldungen.",
-      image: betterPicture,
+      bio: "Bringt Ordnung in komplexe Unterlagen, hält Prozesse transparent und sorgt für klare Rückmeldungen für Klientinnen, Klienten und Angehörige in Kiel.",
+      image: heroImage,
     },
     {
       name: "Hendrik",
       role: "Sachbearbeitung",
-      bio: "Unterstuetzt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise.",
-      image: betterPicture,
+      bio: "Unterstützt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise und klaren Prioritäten.",
+      image: heroImage,
     },
     {
       name: "Dennis Pieper",
-      role: "Organisation und Koordination",
-      bio: "Sorgt fuer abgestimmte Ablaeufe und eine zuverlaessige Termin- und Kommunikationsstruktur.",
+      role: "Entwickler",
+      bio: "Kümmert sich um IT-Dinge.",
       image: Profilbild,
     },
   ];
@@ -43,9 +43,9 @@ const UnserTeam = () => {
           <Reveal>
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <span className="eyebrow">Unser Team</span>
-              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Persoenlich. Klar. Zuverlaessig.</h1>
+              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Persönlich. Klar. Zuverlässig.</h1>
               <p className="section-copy mt-5">
-                Gute Betreuung ist Teamarbeit. Jede Person im Buero traegt dazu bei, dass Anliegen schnell, professionell und respektvoll bearbeitet werden.
+                Gute Betreuung ist Teamarbeit. Jede Person im Büro trägt dazu bei, dass Anliegen schnell, professionell und respektvoll bearbeitet werden.
               </p>
             </div>
           </Reveal>
@@ -57,7 +57,14 @@ const UnserTeam = () => {
                   <CardContent className="p-0">
                     <div className="grid min-h-[390px] md:grid-cols-2">
                       <div className="h-64 md:h-full">
-                        <img src={member.image} alt={member.name} className="h-full w-full object-cover" loading="lazy" />
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                       </div>
                       <div className="flex flex-col justify-center p-6 md:p-7">
                         <h3 className="text-2xl font-semibold">{member.name}</h3>

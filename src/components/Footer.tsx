@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="font-semibold">Sven Thamm</span>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Berufliche Betreuung in Kiel mit klarem Fokus auf Verlaesslichkeit, Struktur und menschliche Naehe.
+              Berufliche Betreuung in Kiel mit klarem Fokus auf Verlässlichkeit, Struktur und menschliche Nähe.
             </p>
           </div>
 

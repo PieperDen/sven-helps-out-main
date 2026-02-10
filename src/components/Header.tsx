@@ -22,6 +22,7 @@ const Header = () => {
     { name: "Unser Team", path: "/ueber-mich" },
     { name: "Kontakt", path: "/kontakt" },
     { name: "Standort", path: "/wo-du-uns-findest" },
+    { name: "Voraussetzungen", path: "/voraussetzungen" },
     { name: "Impressum", path: "/impressum" },
   ];
 
@@ -37,12 +38,12 @@ const Header = () => {
             : "bg-background/75 border-border/65 backdrop-blur-md",
         )}
       >
-        <Link to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[var(--shadow-soft)]">
+        <Link to="/" className="group flex items-center gap-3">
+          <div className="float-soft flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:scale-105">
             <span className="text-xl leading-none">§</span>
           </div>
           <div>
-            <p className="text-sm font-semibold text-foreground">Sven Thamm</p>
+            <p className="text-sm font-semibold text-foreground transition-colors group-hover:text-primary">Sven Thamm</p>
             <p className="text-xs text-muted-foreground">Berufliche Betreuung Kiel</p>
           </div>
         </Link>
@@ -52,23 +53,21 @@ const Header = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                isActive(item.path) ? "text-primary" : "text-foreground/75 hover:text-primary",
-              )}
+              className={cn("nav-link-modern", isActive(item.path) && "text-primary")}
+              data-active={isActive(item.path)}
             >
               {item.name}
             </Link>
           ))}
           <Button asChild size="sm" className="rounded-xl">
-            <Link to="/kontakt">Erstgespraech</Link>
+            <Link to="/kontakt">Erstgespräch</Link>
           </Button>
         </div>
 
         <button
           className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-background/80 text-foreground md:hidden"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          aria-label="Navigation oeffnen"
+          aria-label="Navigation öffnen"
         >
           {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>

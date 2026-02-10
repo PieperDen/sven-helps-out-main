@@ -183,6 +183,29 @@
     border-color: hsl(var(--primary) / 0.35);
   }
 
+  .nav-link-modern {
+    @apply relative text-sm font-medium text-foreground/75 transition-colors hover:text-primary;
+  }
+
+  .nav-link-modern::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35rem;
+    width: 100%;
+    height: 2px;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.28s ease;
+  }
+
+  .nav-link-modern:hover::after,
+  .nav-link-modern[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
   .eyebrow {
     @apply inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary;
   }
@@ -214,6 +237,34 @@
 
   .stagger-3 {
     transition-delay: 0.24s;
+  }
+
+  .float-soft {
+    animation: float-soft 5.6s ease-in-out infinite;
+  }
+
+  .pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+  }
+
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

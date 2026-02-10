@@ -69,7 +69,7 @@ const Kontakt = () => {
               <span className="eyebrow">Kontakt</span>
               <h1 className="mt-4 text-balance text-4xl font-semibold md:text-5xl">Schnell und unkompliziert erreichbar</h1>
               <p className="section-copy mt-5">
-                Schreiben Sie Ihr Anliegen, ich melde mich zeitnah zurueck. Fuer dringende Faelle ist ein direkter Anruf oft der schnellste Weg.
+                Schreiben Sie Ihr Anliegen, ich melde mich zeitnah zurück. Für dringende Fälle in Kiel und Umgebung ist ein direkter Anruf oft der schnellste Weg.
               </p>
             </div>
           </Reveal>
@@ -97,14 +97,14 @@ const Kontakt = () => {
                       <div className="space-y-2">
                         <Label htmlFor="reason">Grund *</Label>
                         <Select value={formData.reason} onValueChange={(v) => setFormData((p) => ({ ...p, reason: v }))}>
-                          <SelectTrigger id="reason">
-                            <SelectValue placeholder="Bitte waehlen" />
-                          </SelectTrigger>
+                            <SelectTrigger id="reason">
+                            <SelectValue placeholder="Bitte wählen" />
+                            </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="allgemein">Allgemeine Anfrage</SelectItem>
                             <SelectItem value="leistungen">Frage zu Leistungen</SelectItem>
                             <SelectItem value="termin">Terminvereinbarung</SelectItem>
-                            <SelectItem value="rueckruf">Rueckruf gewuenscht</SelectItem>
+                            <SelectItem value="rueckruf">Rückruf gewünscht</SelectItem>
                             <SelectItem value="sonstiges">Sonstiges</SelectItem>
                           </SelectContent>
                         </Select>
@@ -135,18 +135,18 @@ const Kontakt = () => {
                           if (!formData.name || !formData.email || !formData.reason || !formData.message) {
                             e.preventDefault();
                             toast({
-                              title: "Bitte Formular ergaenzen",
+                              title: "Bitte Formular ergänzen",
                               description: "Name, E-Mail, Grund und Nachricht bitte angeben.",
                             });
                             return;
                           }
                           toast({
                             title: "E-Mail wird vorbereitet",
-                            description: "Die Nachricht wird in Ihrem E-Mail-Programm geoeffnet.",
+                            description: "Die Nachricht wird in Ihrem E-Mail-Programm geöffnet.",
                           });
                         }}
                       >
-                        Nachricht im E-Mail-Programm oeffnen
+                        Nachricht im E-Mail-Programm öffnen
                       </a>
                     </Button>
                   </form>
@@ -162,8 +162,8 @@ const Kontakt = () => {
                   </CardHeader>
                   <CardContent className="space-y-5">
                     {contactInfo.map((info) => (
-                      <div key={info.title} className="flex gap-3">
-                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <div key={info.title} className="group flex gap-3">
+                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105">
                           <info.icon className="h-5 w-5" />
                         </div>
                         <div>
@@ -187,7 +187,7 @@ const Kontakt = () => {
                   <CardContent className="space-y-3 p-6">
                     <p className="text-sm font-semibold">Erreichbarkeit</p>
                     <p className="text-sm text-muted-foreground">
-                      Montag bis Freitag von 9:00 bis 19:00 Uhr. In dringenden Faellen bitte direkt telefonisch melden.
+                      Montag bis Freitag von 9:00 bis 19:00 Uhr. In dringenden Fällen bitte direkt telefonisch melden.
                     </p>
                     <a href="tel:+491234567890" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
                       <Clock3 className="h-4 w-4" /> Jetzt anrufen
@@ -195,6 +195,7 @@ const Kontakt = () => {
                   </CardContent>
                 </Card>
               </Reveal>
+
             </div>
           </div>
         </section>

@@ -10,25 +10,25 @@ const WoDuUnsFindest = () => {
       icon: MapPin,
       title: "Adresse",
       description: "Lorentzendamm 6-8, 24103 Kiel",
-      details: "Das Buero befindet sich zentral in Kiel mit guter Erreichbarkeit.",
+      details: "Das Büro befindet sich zentral in Kiel mit guter Erreichbarkeit.",
     },
     {
       icon: Navigation,
-      title: "Im Gebaeude",
+      title: "Im Gebäude",
       description: "Turmbau, 1. Obergeschoss, Raum T-1.04",
       details: "Vor Ort weist die Beschilderung den Weg zur Betreuung.",
     },
     {
       icon: Bus,
-      title: "Anfahrt mit OePNV",
+      title: "Anfahrt mit ÖPNV",
       description: "Buslinien 61, 62, 32 und 11",
-      details: "Haltestellen Schlossgarten, Hospitalstrasse, Jensendamm, Martensdamm.",
+      details: "Haltestellen Schlossgarten, Hospitalstraße, Jensendamm, Martensdamm.",
     },
     {
       icon: Clock,
       title: "Termine",
       description: "Nur nach Vereinbarung",
-      details: "Persoenliche Gespraeche finden nach vorheriger Terminabsprache statt.",
+      details: "Persönliche Gespräche finden nach vorheriger Terminabsprache statt.",
     },
   ];
 
@@ -43,7 +43,7 @@ const WoDuUnsFindest = () => {
               <span className="eyebrow">Standort Kiel</span>
               <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Gut erreichbar im Herzen von Kiel</h1>
               <p className="section-copy mt-5">
-                Fuer persoenliche Beratungsgespraeche empfangen wir Sie in ruhiger Atmosphaere am Lorentzendamm.
+                Für persönliche Beratungsgespräche in Kiel empfangen wir Sie in ruhiger Atmosphäre am Lorentzendamm.
               </p>
             </div>
           </Reveal>
@@ -51,9 +51,9 @@ const WoDuUnsFindest = () => {
           <div className="mb-10 grid gap-5 md:grid-cols-2">
             {highlights.map((highlight, index) => (
               <Reveal key={highlight.title} delayClass={index % 2 === 0 ? "" : "stagger-1"}>
-                <Card className="premium-card h-full rounded-3xl">
+                <Card className="premium-card group h-full rounded-3xl">
                   <CardHeader className="pb-2">
-                    <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                       <highlight.icon className="h-5 w-5" />
                     </div>
                     <CardTitle className="text-xl">{highlight.title}</CardTitle>
