@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import heroImage from "@/assets/hero-image.jpg";
 import Profilbild from "@/assets/Profilbild.png";
 import SvenThamm from "@/assets/SvenThamm.jpg";
+import HendrikGrönholdt from "@/assets/HendrikGrönholdt.png";
 
 const UnserTeam = () => {
   const team = [
@@ -24,7 +25,7 @@ const UnserTeam = () => {
       name: "Hendrik Grönholdt",
       role: "Sachbearbeitung",
       bio: "Unterstützt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise und klaren Prioritäten.",
-      image: "/HendrikGrönholdt.png",
+      image: HendrikGrönholdt,
     },
     {
       name: "Dennis Pieper",
