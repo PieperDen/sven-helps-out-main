@@ -15,16 +15,16 @@ const UnserTeam = () => {
       image: SvenThamm,
     },
     {
-      name: "Jessica",
+      name: "Jennifer Grönholdt",
       role: "Sachbearbeitung",
       bio: "Bringt Ordnung in komplexe Unterlagen, hält Prozesse transparent und sorgt für klare Rückmeldungen für Klientinnen, Klienten und Angehörige in Kiel.",
       image: heroImage,
     },
     {
-      name: "Hendrik",
+      name: "Hendrik Grönholdt",
       role: "Sachbearbeitung",
       bio: "Unterstützt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise und klaren Prioritäten.",
-      image: heroImage,
+      image: "/HendrikGrönholdt.png",
     },
     {
       name: "Dennis Pieper",
