@@ -12,8 +12,8 @@ const UnserTeam = () => {
   const team = [
     {
       name: "Sven Thamm",
-      role: "Inhaber und Beruflicher Betreuer",
-      bio: "Ich begleite Menschen mit Verlässlichkeit, Respekt und einer klaren Struktur, damit Entscheidungen nachvollziehbar und alltagstauglich bleiben.",
+      role: "Rechtsanwalt",
+      bio: "Als Rechtsanwalt berate und vertrete ich Mandantinnen und Mandanten in sozialrechtlichen Fragen — klar, verlässlich und auf Augenhöhe.",
       image: SvenThamm,
     },
     {

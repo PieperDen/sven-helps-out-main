@@ -81,10 +81,12 @@ const Leistungen = () => {
           </Reveal>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {services.map((service, index) => (
-              <Reveal key={service.title} delayClass={index % 2 === 0 ? "" : "stagger-1"}>
+            {services.map((service, index) => {
+              const sameRowAsExpanded = expandedIndex !== null && Math.floor(index / 2) === Math.floor(expandedIndex / 2);
+              return (
+              <Reveal key={service.title} delayClass={index % 2 === 0 ? "" : "stagger-1"} className={sameRowAsExpanded ? "self-start" : "h-full"}>
                 <Card
-                  className={`premium-card group h-full rounded-3xl transition-all duration-300 ${expandedIndex === index ? "md:col-span-2 border-primary/40" : ""}`}
+                  className={`premium-card group rounded-3xl transition-all duration-300 ${sameRowAsExpanded ? "" : "h-full"} ${expandedIndex === index ? "border-primary/40" : ""}`}
                 >
                   <button
                     type="button"
@@ -147,7 +149,8 @@ const Leistungen = () => {
                   </button>
                 </Card>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </section>
 
