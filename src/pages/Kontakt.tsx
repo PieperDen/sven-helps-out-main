@@ -22,7 +22,7 @@ const Kontakt = () => {
   });
 
   const buildMailtoHref = () =>
-    `mailto:sven.thamm@btkiel.de?subject=${encodeURIComponent(
+    `mailto:info@btkiel.de?subject=${encodeURIComponent(
       (formData.reason || "") + (formData.name ? " - " + formData.name : ""),
     )}&body=${encodeURIComponent(
       `Nachricht:\n${formData.message}\n\nKontakt:\nName: ${formData.name}\nE-Mail: ${formData.email}${
@@ -41,14 +41,14 @@ const Kontakt = () => {
     {
       icon: Phone,
       title: "Telefon",
-      content: "+49 (0) 123 456 7890",
-      link: "tel:+491234567890",
+      content: "0431 58092555",
+      link: "tel:+4943158092555",
     },
     {
       icon: Mail,
       title: "E-Mail",
-      content: "sven.thamm@btkiel.de",
-      link: "mailto:sven.thamm@btkiel.de",
+      content: "info@btkiel.de",
+      link: "mailto:info@btkiel.de",
     },
     {
       icon: MapPin,
@@ -189,7 +189,7 @@ const Kontakt = () => {
                     <p className="text-sm text-muted-foreground">
                       Montag bis Freitag von 9:00 bis 19:00 Uhr. In dringenden Fällen bitte direkt telefonisch melden.
                     </p>
-                    <a href="tel:+491234567890" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
+                    <a href="tel:+4943158092555" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80">
                       <Clock3 className="h-4 w-4" /> Jetzt anrufen
                     </a>
                   </CardContent>

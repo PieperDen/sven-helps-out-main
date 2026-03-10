@@ -34,8 +34,8 @@ const Impressum = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">Kontakt</p>
-                    <p>Telefon: +49 (0) 123 456 7890</p>
-                    <p>E-Mail: sven.thamm@btkiel.de</p>
+                    <p>Telefon: 0431 58092555</p>
+                    <p>E-Mail: info@btkiel.de</p>
                   </div>
                 </CardContent>
               </Card>

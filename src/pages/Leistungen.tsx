@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Scale, Shield, Stethoscope, WalletCards } from "lucide-react";
+import { ArrowRight, CheckCircle2, Gavel, Scale, Shield, WalletCards } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -10,14 +10,26 @@ import Reveal from "@/components/Reveal";
 const Leistungen = () => {
   const services = [
     {
-      icon: Shield,
-      title: "Berufsbetreuung",
+      icon: Gavel,
+      title: "Rechtsanwalt und rechtliche Beratung",
       hint: null,
       description:
-        "Vertretung in den gerichtlich festgelegten Aufgabenkreisen mit klarer Dokumentation und verständlicher Kommunikation.",
+        "Rechtliche Einschätzung und Beratung in betreuungsrelevanten Fragen, klar und verständlich erklärt — auch im Sozialrecht.",
       details:
-        "Ich übernehme die rechtliche Vertretung in den festgelegten Aufgabenkreisen strukturiert, nachvollziehbar und mit klarer Priorisierung. Komplexe Sachverhalte werden verständlich aufbereitet, damit Entscheidungen sicher getroffen werden können.",
-      items: ["Behördenangelegenheiten", "Anträge und Fristen", "Korrespondenz mit Institutionen"],
+        "Bei rechtlichen Fragestellungen werden Optionen transparent erläutert und gemeinsam eingeordnet. So entsteht eine belastbare Grundlage für Entscheidungen und das weitere Vorgehen.",
+      items: ["Einordnung rechtlicher Möglichkeiten", "Klärung nächster Schritte", "Abstimmung mit beteiligten Stellen"],
+      sozialrecht: {
+        intro:
+          "Im Sozialrecht geht es häufig um existenzielle Fragen wie die Sicherung des Lebensunterhalts, Ansprüche auf Leistungen oder Unterstützung bei Krankheit, Behinderung oder Arbeitslosigkeit. Ich vertrete Mandantinnen und Mandanten sowohl außergerichtlich gegenüber Behörden als auch vor den Sozialgerichten.",
+        items: [
+          "Beratung zu sozialrechtlichen Ansprüchen",
+          "Prüfung von Bescheiden von Behörden und Sozialversicherungsträgern",
+          "Einlegung und Begründung von Widersprüchen",
+          "Vertretung in Widerspruchsverfahren gegenüber Behörden",
+          "Klageverfahren vor den Sozialgerichten",
+          "Begleitung in gerichtlichen Verfahren",
+        ],
+      },
     },
     {
       icon: Scale,
@@ -40,14 +52,14 @@ const Leistungen = () => {
       items: ["Begleitung bei Terminen", "Unterstützung bei Anträgen", "Hilfe bei Schriftverkehr und Organisation"],
     },
     {
-      icon: Stethoscope,
-      title: "Rechtsanwalt und rechtliche Beratung",
+      icon: Shield,
+      title: "Berufsbetreuung",
       hint: null,
       description:
-        "Rechtliche Einschätzung und Beratung in betreuungsrelevanten Fragen, klar und verständlich erklärt.",
+        "Vertretung in den gerichtlich festgelegten Aufgabenkreisen mit klarer Dokumentation und verständlicher Kommunikation.",
       details:
-        "Bei rechtlichen Fragestellungen werden Optionen transparent erläutert und gemeinsam eingeordnet. So entsteht eine belastbare Grundlage für Entscheidungen und das weitere Vorgehen.",
-      items: ["Einordnung rechtlicher Möglichkeiten", "Klärung nächster Schritte", "Abstimmung mit beteiligten Stellen"],
+        "Ich übernehme die rechtliche Vertretung in den festgelegten Aufgabenkreisen strukturiert, nachvollziehbar und mit klarer Priorisierung. Komplexe Sachverhalte werden verständlich aufbereitet, damit Entscheidungen sicher getroffen werden können.",
+      items: ["Behördenangelegenheiten", "Anträge und Fristen", "Korrespondenz mit Institutionen"],
     },
   ];
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
@@ -63,7 +75,7 @@ const Leistungen = () => {
               <span className="eyebrow">Leistungsspektrum</span>
               <h1 className="mt-4 text-balance text-4xl font-semibold md:text-5xl">Betreuung mit Struktur und klaren Zielen</h1>
               <p className="section-copy mt-5">
-                Jede Betreuung ist individuell. Die folgenden Bereiche zeigen, wo Unterstützung in Kiel konkret entlastet und Sicherheit schafft.
+                Jede Lebenslage ist individuell. Die folgenden Bereiche zeigen, wo Unterstützung in Kiel konkret entlastet und Sicherheit schafft.
               </p>
             </div>
           </Reveal>
@@ -109,6 +121,28 @@ const Leistungen = () => {
                           </li>
                         ))}
                       </ul>
+                      {"sozialrecht" in service && expandedIndex === index && (
+                        <div className="mt-6 rounded-2xl border border-primary/15 bg-primary/5 p-4">
+                          <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Vertretung im Sozialrecht</p>
+                          <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{(service as typeof service & { sozialrecht: { intro: string; items: string[] } }).sozialrecht.intro}</p>
+                          <ul className="space-y-2">
+                            {(service as typeof service & { sozialrecht: { intro: string; items: string[] } }).sozialrecht.items.map((item) => (
+                              <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
+                                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {expandedIndex === index && (
+                        <Link
+                          to="/voraussetzungen"
+                          className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80"
+                        >
+                          Voraussetzungen ansehen <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      )}
                     </CardContent>
                   </button>
                 </Card>

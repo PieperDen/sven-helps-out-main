@@ -29,11 +29,11 @@ const Footer = () => {
           <div className="md:col-span-4">
             <p className="mb-3 text-sm font-semibold">Kontakt in Kiel</p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <a href="tel:+491234567890" className="flex items-center gap-2 hover:text-primary">
-                <Phone className="h-4 w-4" /> +49 (0) 123 456 7890
+              <a href="tel:+4943158092555" className="flex items-center gap-2 hover:text-primary">
+                <Phone className="h-4 w-4" /> 0431 58092555
               </a>
-              <a href="mailto:sven.thamm@btkiel.de" className="flex items-center gap-2 hover:text-primary">
-                <Mail className="h-4 w-4" /> sven.thamm@btkiel.de
+              <a href="mailto:info@btkiel.de" className="flex items-center gap-2 hover:text-primary">
+                <Mail className="h-4 w-4" /> info@btkiel.de
               </a>
               <p className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" /> Lorentzendamm 6-8, 24103 Kiel

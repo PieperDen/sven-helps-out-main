@@ -70,14 +70,11 @@ const Index = () => {
         <section className="container mx-auto px-4 pb-12 pt-10 md:pb-16 md:pt-14">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
             <Reveal className="lg:col-span-7">
-              <span className="eyebrow">Berufliche Betreuung in Kiel</span>
               <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-6xl">
-                Verlässliche rechtliche Betreuung. Menschlich, strukturiert und erreichbar.
+               Menschlich, strukturiert und erreichbar.
               </h1>
               <p className="section-copy mt-6 max-w-2xl">
-                Ich begleite Menschen in anspruchsvollen Lebenslagen in Kiel und Umgebung mit
-                klarer Organisation, respektvoller Kommunikation und einem festen Blick auf
-                Selbstbestimmung.
+               Als Rechtsanwalt, Berufsbetreuer und Verfahrenspfleger unterstütze ich Menschen in betreuungsrechtlichen Verfahren – mit fundierter Beratung, kompetenter Vertretung und persönlichem Engagement.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -190,8 +187,8 @@ const Index = () => {
                     </Link>
                   </Button>
                   <p className="mt-3 text-xs text-primary-foreground/85">Alternativ direkt telefonisch erreichbar.</p>
-                  <a href="tel:+491234567890" className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary-foreground hover:text-white">
-                    <Clock3 className="h-4 w-4" /> +49 (0) 123 456 7890
+                  <a href="tel:+4943158092555" className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-primary-foreground hover:text-white">
+                    <Clock3 className="h-4 w-4" /> 0431 58092555
                   </a>
                 </div>
               </CardContent>

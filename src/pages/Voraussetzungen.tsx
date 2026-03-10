@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Scale,
   Shield,
-  Stethoscope,
   WalletCards,
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -41,7 +40,7 @@ const Voraussetzungen = () => {
       legal: "Rechtsgrundlage: § 276 FamFG; Vergütung in § 277 FamFG.",
     },
     {
-      icon: Stethoscope,
+      icon: Gavel,
       title: "Rechtsanwalt und rechtliche Beratung",
       checks: [
         "Selbständige außergerichtliche Rechtsdienstleistungen sind nur erlaubt, wenn eine gesetzliche Befugnis besteht.",
@@ -141,6 +140,141 @@ const Voraussetzungen = () => {
                 </Card>
               </Reveal>
             ))}
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-16 pt-6">
+          <Reveal>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <span className="eyebrow">Mandatierung</span>
+              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Ablauf der Mandatierung</h2>
+              <p className="section-copy mt-4">
+                Eine rechtliche Beratung oder Vertretung beginnt mit der Kontaktaufnahme. Der Ablauf gestaltet sich dabei transparent und nachvollziehbar.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mx-auto max-w-6xl">
+            {[
+              {
+                step: "01",
+                title: "Kontaktaufnahme",
+                text: "Sie können mich telefonisch, per E-Mail oder über das Kontaktformular der Website erreichen. In einer ersten kurzen Schilderung Ihres Anliegens können wir klären, ob und wie ich Sie unterstützen kann und gegebenenfalls einen Termin vereinbaren.",
+              },
+              {
+                step: "02",
+                title: "Erstgespräch",
+                text: "Im Erstgespräch schildern Sie Ihr Anliegen ausführlicher. Ich prüfe die rechtliche Situation, erläutere mögliche Vorgehensweisen und beantworte Ihre Fragen. Bereits in diesem Gespräch erhalten Sie eine erste Einschätzung zu den Erfolgsaussichten und zum weiteren Vorgehen.",
+              },
+              {
+                step: "03",
+                title: "Mandatserteilung",
+                text: "Wenn Sie möchten, dass ich Sie rechtlich vertrete, erfolgt die Mandatserteilung. Hierfür unterzeichnen Sie eine Vollmacht sowie eine Mandatsvereinbarung — die Grundlage dafür, dass ich Ihre Interessen gegenüber Behörden, Gerichten oder anderen Beteiligten vertreten kann.",
+              },
+              {
+                step: "04",
+                title: "Bearbeitung Ihres Anliegens",
+                text: "Nach der Mandatierung beginne ich mit der rechtlichen Bearbeitung Ihres Falls: Prüfung von Unterlagen, Kommunikation mit Behörden sowie — falls erforderlich — die außergerichtliche oder gerichtliche Vertretung Ihrer Interessen.",
+              },
+              {
+                step: "05",
+                title: "Information über den Fortgang",
+                text: "Während des gesamten Verfahrens halte ich Sie über wichtige Entwicklungen und den Stand Ihres Verfahrens auf dem Laufenden. Entscheidungen über wesentliche Schritte werden selbstverständlich mit Ihnen abgestimmt.",
+              },
+            ].map((item, idx) => (
+              <Reveal key={item.step} delayClass={idx % 2 === 0 ? "" : "stagger-1"}>
+                <div className="premium-card group mb-4 rounded-3xl p-6 md:p-7">
+                  <div className="flex items-start gap-5">
+                    <span className="mt-0.5 shrink-0 text-xs font-semibold tracking-[0.18em] text-primary">{item.step}</span>
+                    <div>
+                      <h3 className="text-lg font-semibold">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+            <p className="mt-4 text-center text-xs text-muted-foreground">
+              Transparenz, eine verständliche Beratung und eine vertrauensvolle Zusammenarbeit sind die Grundlage meiner anwaltlichen Tätigkeit.
+            </p>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-16 pt-6">
+          <Reveal>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <span className="eyebrow">Beratungshilfe</span>
+              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Unterstützung bei den Kosten</h2>
+              <p className="section-copy mt-4">
+                Nicht jeder kann die Kosten für eine anwaltliche Beratung sofort selbst tragen. Für Menschen mit geringem Einkommen gibt es staatliche Unterstützung.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mx-auto max-w-6xl grid gap-5 md:grid-cols-2">
+            <Reveal>
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Was ist Beratungshilfe?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Beratungshilfe ist eine staatliche Leistung, die es Bürgerinnen und Bürgern mit geringem Einkommen ermöglicht, sich außergerichtlich von einem Rechtsanwalt beraten und vertreten zu lassen — z. B. bei Problemen mit Behörden, im Sozialrecht, im Familienrecht oder in anderen zivilrechtlichen Angelegenheiten.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal delayClass="stagger-1">
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Voraussetzungen</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {[
+                      "Sie können die Kosten einer anwaltlichen Beratung nicht selbst aufbringen.",
+                      "Es besteht keine andere zumutbare Möglichkeit der Hilfe (z. B. Rechtsschutzversicherung).",
+                      "Es handelt sich um eine außergerichtliche Angelegenheit.",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal>
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Wie erhält man Beratungshilfe?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Der Antrag wird beim zuständigen Amtsgericht gestellt. Das Gericht prüft Ihre persönlichen und wirtschaftlichen Verhältnisse. Bei Bewilligung erhalten Sie einen <span className="font-medium text-foreground">Beratungshilfeschein</span>, den Sie anschließend bei einem Rechtsanwalt Ihrer Wahl vorlegen können.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal delayClass="stagger-1">
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Kosten &amp; Beratung in meiner Kanzlei</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Bei bewilligter Beratungshilfe übernimmt die Staatskasse den größten Teil der Kosten. In der Regel fällt lediglich eine Eigenbeteiligung von <span className="font-medium text-foreground">15 Euro</span> an.
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    Bitte bringen Sie — sofern vorhanden — den Beratungshilfeschein sowie relevante Unterlagen mit. Sollten Sie noch keinen Schein haben, klären wir gemeinsam, ob die Voraussetzungen für eine Antragstellung vorliegen.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
           </div>
         </section>
 

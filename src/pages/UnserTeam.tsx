@@ -6,6 +6,7 @@ import heroImage from "@/assets/hero-image.jpg";
 import Profilbild from "@/assets/Profilbild.png";
 import SvenThamm from "@/assets/SvenThamm.jpg";
 import HendrikGrönholdt from "@/assets/HendrikGrönholdt.png";
+import JenniferGrönholdt from "@/assets/JenniferGrönholdt.png";
 
 const UnserTeam = () => {
   const team = [
@@ -19,7 +20,7 @@ const UnserTeam = () => {
       name: "Jennifer Grönholdt",
       role: "Sachbearbeitung",
       bio: "Bringt Ordnung in komplexe Unterlagen, hält Prozesse transparent und sorgt für klare Rückmeldungen für Klientinnen, Klienten und Angehörige in Kiel.",
-      image: heroImage,
+      image: JenniferGrönholdt,
     },
     {
       name: "Hendrik Grönholdt",
@@ -44,9 +45,9 @@ const UnserTeam = () => {
           <Reveal>
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <span className="eyebrow">Unser Team</span>
-              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Persönlich. Klar. Zuverlässig.</h1>
+              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Gemeinsam für Sie da.</h1>
               <p className="section-copy mt-5">
-                Gute Betreuung ist Teamarbeit. Jede Person im Büro trägt dazu bei, dass Anliegen schnell, professionell und respektvoll bearbeitet werden.
+                Bei uns zieht jeder an einem Strang — damit Sie immer einen festen Ansprechpartner haben und gleichzeitig auf ein ganzes Team vertrauen können.
               </p>
             </div>
           </Reveal>

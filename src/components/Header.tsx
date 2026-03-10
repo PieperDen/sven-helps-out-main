@@ -22,7 +22,6 @@ const Header = () => {
     { name: "Unser Team", path: "/ueber-mich" },
     { name: "Kontakt", path: "/kontakt" },
     { name: "Standort", path: "/wo-du-uns-findest" },
-    { name: "Voraussetzungen", path: "/voraussetzungen" },
     { name: "Impressum", path: "/impressum" },
   ];
 
@@ -44,7 +43,7 @@ const Header = () => {
           </div>
           <div>
             <p className="text-sm font-semibold text-foreground transition-colors group-hover:text-primary">Sven Thamm</p>
-            <p className="text-xs text-muted-foreground">Berufliche Betreuung Kiel</p>
+            <p className="text-xs text-muted-foreground">Rechtsanwalt/Gesetzliche Betreuung</p>
           </div>
         </Link>
 
@@ -92,7 +91,7 @@ const Header = () => {
               </Link>
             ))}
             <Button asChild className="mt-1 rounded-xl">
-              <Link to="tel:+491234567890" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="tel:+4943158092555" onClick={() => setMobileMenuOpen(false)}>
                 <PhoneCall className="h-4 w-4" />
                 Direkt anrufen
               </Link>
