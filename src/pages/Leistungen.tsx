@@ -1,143 +1,140 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Scale, Shield, Stethoscope, WalletCards } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { cn } from "@/lib/utils";
+import Reveal from "@/components/Reveal";
 
 const Leistungen = () => {
   const services = [
     {
+      icon: Shield,
       title: "Berufsbetreuung",
-      items: [
-       "Hier muss etwas hin",
-      ],
+      hint: null,
       description:
-        "Praktische Hilfe im Alltag – zuverlässig, flexibel und individuell an Ihre Bedürfnisse angepasst.",
+        "Vertretung in den gerichtlich festgelegten Aufgabenkreisen mit klarer Dokumentation und verständlicher Kommunikation.",
+      details:
+        "Ich übernehme die rechtliche Vertretung in den festgelegten Aufgabenkreisen strukturiert, nachvollziehbar und mit klarer Priorisierung. Komplexe Sachverhalte werden verständlich aufbereitet, damit Entscheidungen sicher getroffen werden können.",
+      items: ["Behördenangelegenheiten", "Anträge und Fristen", "Korrespondenz mit Institutionen"],
     },
     {
-      title: "Rechtsanwalt und Rechtliche Beratung",
-      items: [
-        "Hier muss etwas hin",
-      ],
-      description:
-        "Gemeinsam aktiv bleiben: Kontakte pflegen, Neues erleben und Teilhabe gestalten.",
-    },
-    {
+      icon: Scale,
       title: "Verfahrenspflegschaften",
-      items: [
-        "Hier muss etwas hin",
-      ],
+      hint: "Hinweis: Verfahrenspflegschaften sind nicht frei buchbar, sondern werden durch gerichtliche Bestellung übertragen.",
       description:
-        "Individuelle Beratung auf Augenhöhe – lösungsorientiert, respektvoll und stärkenfokussiert.",
+        "Unabhängige Wahrnehmung von Interessen in gerichtlichen Verfahren, präzise und respektvoll.",
+      details:
+        "Als Verfahrenspfleger vertrete ich die Perspektive der betroffenen Person im Verfahren. Relevante Informationen werden sorgfältig gesammelt, eingeordnet und verständlich für das Gericht dargestellt.",
+      items: ["Gespräche mit Beteiligten", "Stellungnahmen für Gerichte", "Vertretung der Perspektive der Betroffenen"],
     },
     {
-      title: "Alltagsbegleitung/Alltagshilfe",
-      items: [
-       "Hier muss etwas hin",
-      ],
+      icon: WalletCards,
+      title: "Alltagsbegleitung / Alltagshilfe",
+      hint: null,
       description:
-        "Entlastung bei Papierkram und Organisation – damit Sie den Kopf frei haben.",
+        "Praktische Unterstützung im Alltag, damit wichtige Aufgaben verlässlich erledigt werden.",
+      details:
+        "Ich unterstütze bei organisatorischen und alltagsnahen Themen, damit Strukturen stabil bleiben und Überforderung reduziert wird. Ziel ist eine spürbare Entlastung im täglichen Ablauf.",
+      items: ["Begleitung bei Terminen", "Unterstützung bei Anträgen", "Hilfe bei Schriftverkehr und Organisation"],
     },
-  ] as const;
-
+    {
+      icon: Stethoscope,
+      title: "Rechtsanwalt und rechtliche Beratung",
+      hint: null,
+      description:
+        "Rechtliche Einschätzung und Beratung in betreuungsrelevanten Fragen, klar und verständlich erklärt.",
+      details:
+        "Bei rechtlichen Fragestellungen werden Optionen transparent erläutert und gemeinsam eingeordnet. So entsteht eine belastbare Grundlage für Entscheidungen und das weitere Vorgehen.",
+      items: ["Einordnung rechtlicher Möglichkeiten", "Klärung nächster Schritte", "Abstimmung mit beteiligten Stellen"],
+    },
+  ];
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
-  const handleToggle = (index: number) => {
-    setExpandedIndex((prev) => (prev === index ? null : index));
-  };
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="page-shell min-h-screen flex flex-col">
       <Header />
 
-      <main className="flex-1">
-        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-in fade-in-50 slide-in-from-top-4 duration-700">
-                Meine Leistungen
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Individuelle Unterstützung in allen Bereichen des täglichen Lebens. Ich bin für Sie da, wenn Sie Hilfe
-                benötigen.
+      <main className="relative z-10 flex-1">
+        <section className="container mx-auto px-4 pb-16 pt-10 md:pt-14">
+          <Reveal>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <span className="eyebrow">Leistungsspektrum</span>
+              <h1 className="mt-4 text-balance text-4xl font-semibold md:text-5xl">Betreuung mit Struktur und klaren Zielen</h1>
+              <p className="section-copy mt-5">
+                Jede Betreuung ist individuell. Die folgenden Bereiche zeigen, wo Unterstützung in Kiel konkret entlastet und Sicherheit schafft.
               </p>
             </div>
+          </Reveal>
 
-            {/* 4 Reiter sichtbar; Klick vergrößert die Karte und zeigt Details */}
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {services.map((service, index) => {
-                const isExpanded = expandedIndex === index;
-                return (
-                  <Card
-                    key={index}
-                    onClick={() => handleToggle(index)}
-                    className={cn(
-                      "group cursor-pointer border-2 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-soft)] animate-in fade-in-50 slide-in-from-bottom-4 duration-700",
-                      isExpanded ? "md:col-span-2 ring-1 ring-primary/30" : "",
-                    )}
-                    style={{ animationDelay: `${index * 120 + 100}ms` }}
+          <div className="grid gap-5 md:grid-cols-2">
+            {services.map((service, index) => (
+              <Reveal key={service.title} delayClass={index % 2 === 0 ? "" : "stagger-1"}>
+                <Card
+                  className={`premium-card group h-full rounded-3xl transition-all duration-300 ${expandedIndex === index ? "md:col-span-2 border-primary/40" : ""}`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setExpandedIndex((prev) => (prev === index ? null : index))}
+                    className="w-full text-left"
+                    aria-expanded={expandedIndex === index}
                   >
                     <CardHeader>
-                      <CardTitle className="flex items-center justify-between text-2xl text-primary">
-                        {service.title}
-                        <span
-                          className={cn(
-                            "ml-3 inline-flex h-6 w-6 items-center justify-center rounded-full border text-xs transition-colors",
-                            isExpanded
-                              ? "bg-primary text-primary-foreground border-primary"
-                              : "bg-background text-muted-foreground border-muted",
-                          )}
-                          aria-hidden
-                        >
-                          {isExpanded ? "-" : "+"}
+                      <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                        <service.icon className="h-5 w-5" />
+                      </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <CardTitle className="text-2xl">{service.title}</CardTitle>
+                        <span className="mt-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full border border-primary/30 px-2 text-xs font-semibold text-primary">
+                          {expandedIndex === index ? "−" : "+"}
                         </span>
-                      </CardTitle>
-                      <p className="mt-1 text-xs text-muted-foreground">
-                        Klicken für mehr Informationen
-                      </p>
+                      </div>
                     </CardHeader>
                     <CardContent>
-                      {/* Kurzinfo immer sichtbar */}
-                      <ul className={cn("space-y-3", isExpanded ? "mb-4" : "")}
-                        aria-label={service.title}
-                      >
-                        {(isExpanded ? service.items : service.items.slice(0, 2)).map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-3">
-                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-muted-foreground">{item}</span>
+                      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                      {service.hint && (
+                        <p className="mb-5 rounded-xl border border-amber-300/50 bg-amber-100/60 px-3 py-2 text-sm text-amber-900">
+                          {service.hint}
+                        </p>
+                      )}
+                      {expandedIndex === index && (
+                        <p className="mb-5 text-sm leading-relaxed text-foreground/90">{service.details}</p>
+                      )}
+                      <ul className="space-y-2">
+                        {service.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                            {item}
                           </li>
                         ))}
                       </ul>
-
-                      {/* Mehr Informationen nur im erweiterten Zustand */}
-                      {isExpanded && (
-                        <div className="space-y-4 text-muted-foreground">
-                          {service.description && <p>{service.description}</p>}
-                          <div className="text-sm opacity-80">
-                            Für Fragen oder individuelle Anliegen kontaktieren Sie mich gerne über die Seite
-                            <span className="font-medium"> Kontakt</span>.
-                          </div>
-                        </div>
-                      )}
                     </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-
-            <div className="max-w-3xl mx-auto mt-16 text-center">
-              <Card className="bg-accent">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-4">Weitere Leistungen auf Anfrage</h2>
-                  <p className="text-muted-foreground">
-                    Jeder Mensch hat individuelle Bedürfnisse. Sprechen Sie mich gerne an, wenn Sie spezielle
-                    Unterstützung benötigen, die hier nicht aufgeführt ist.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                  </button>
+                </Card>
+              </Reveal>
+            ))}
           </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-16">
+          <Reveal>
+            <Card className="glass-panel rounded-3xl border-primary/15">
+              <CardContent className="flex flex-col gap-5 p-7 md:flex-row md:items-center md:justify-between md:p-9">
+                <div>
+                  <h2 className="text-2xl font-semibold">Unklar, welcher Bereich passt?</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Im Erstgespräch klären wir gemeinsam den Bedarf und priorisieren die nächsten Schritte.
+                  </p>
+                </div>
+                <Button asChild className="rounded-xl">
+                  <Link to="/kontakt">
+                    Erstgespräch anfragen <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </Reveal>
         </section>
       </main>
 
