@@ -86,9 +86,6 @@ const Index = () => {
                 <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/30">
                   <Link to="/leistungen">Leistungen ansehen</Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="rounded-xl">
-                  <Link to="/voraussetzungen">Voraussetzungen prüfen</Link>
-                </Button>
               </div>
 
               <div className="mt-9 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">

@@ -5,9 +5,6 @@ import {
   FileCheck2,
   Gavel,
   ArrowRight,
-  Scale,
-  Shield,
-  WalletCards,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -16,50 +13,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const Voraussetzungen = () => {
-  const fields = [
-    {
-      icon: Shield,
-      title: "Berufsbetreuung (rechtliche Betreuung)",
-      checks: [
-        "Die betroffene Person ist volljährig und kann rechtliche Angelegenheiten ganz oder teilweise nicht selbst besorgen.",
-        "Die Ursache liegt in einer Krankheit oder Behinderung.",
-        "Die Betreuung ist erforderlich, weil Vollmacht oder andere Hilfen nicht ausreichen.",
-        "Die Bestellung erfolgt durch das Betreuungsgericht (nicht frei buchbar).",
-      ],
-      legal: "Rechtsgrundlage: § 1814 BGB; Auswahl des Betreuers nach § 1816 BGB.",
-    },
-    {
-      icon: Scale,
-      title: "Verfahrenspflegschaften",
-      checks: [
-        "Verfahrenspflegschaften werden ausschließlich im gerichtlichen Verfahren bestellt.",
-        "Voraussetzung ist, dass dies zur Wahrnehmung der Interessen der betroffenen Person erforderlich ist.",
-        "Der Verfahrenspfleger bringt Wünsche bzw. mutmaßlichen Willen im Verfahren ein.",
-        "Eine freie Buchung durch Privatpersonen ist nicht möglich.",
-      ],
-      legal: "Rechtsgrundlage: § 276 FamFG; Vergütung in § 277 FamFG.",
-    },
-    {
-      icon: Gavel,
-      title: "Rechtsanwalt und rechtliche Beratung",
-      checks: [
-        "Selbständige außergerichtliche Rechtsdienstleistungen sind nur erlaubt, wenn eine gesetzliche Befugnis besteht.",
-        "Umfassende rechtliche Beratung und Vertretung in Rechtsangelegenheiten ist Aufgabe eines Rechtsanwalts.",
-        "Für Mandatierung ist deshalb in der Regel die anwaltliche Zulassung maßgeblich.",
-      ],
-      legal: "Rechtsgrundlage: § 3 RDG und § 3 BRAO.",
-    },
-    {
-      icon: WalletCards,
-      title: "Alltagsbegleitung / Alltagshilfe",
-      checks: [
-        "Für reine Alltagshilfe gibt es in der Regel keine gerichtliche Bestellvoraussetzung.",
-        "Die Unterstützung erfolgt auf privater Vereinbarung oder über zuständige Sozialleistungsträger.",
-        "Ein Erstgespräch dient der Klärung, welche Form von Hilfe im konkreten Fall passend ist.",
-      ],
-      legal: "Rechtsgrundlage: Keine einheitliche Sondervorschrift wie bei Betreuung/Verfahrenspflege.",
-    },
-  ];
 
   const important = [
     {
@@ -85,45 +38,6 @@ const Voraussetzungen = () => {
 
       <main className="relative z-10 flex-1">
         <section className="container mx-auto px-4 pb-16 pt-10 md:pt-14">
-          <Reveal>
-            <div className="mx-auto mb-12 max-w-3xl text-center">
-              <span className="eyebrow">Voraussetzungen</span>
-              <h1 className="mt-4 text-balance text-4xl font-semibold md:text-5xl">
-                Rechtliche Voraussetzungen nach Leistungsfeld
-              </h1>
-              <p className="section-copy mt-5">
-                Die folgenden Punkte orientieren sich an den gesetzlichen Grundlagen und helfen bei einer
-                ersten Einschätzung. Sie ersetzen keine individuelle Rechtsprüfung im Einzelfall.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mx-auto mb-10 grid max-w-6xl gap-5 md:grid-cols-2">
-            {fields.map((field, index) => (
-              <Reveal key={field.title} delayClass={index % 2 === 0 ? "" : "stagger-1"}>
-                <Card className="premium-card h-full rounded-3xl">
-                  <CardHeader>
-                    <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <field.icon className="h-5 w-5" />
-                    </div>
-                    <CardTitle className="text-xl">{field.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {field.checks.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-4 text-xs text-muted-foreground">{field.legal}</p>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-
           <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-3">
             {important.map((item, index) => (
               <Reveal key={item.title} delayClass={index === 0 ? "" : index === 1 ? "stagger-1" : "stagger-2"}>
@@ -271,6 +185,104 @@ const Voraussetzungen = () => {
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     Bitte bringen Sie — sofern vorhanden — den Beratungshilfeschein sowie relevante Unterlagen mit. Sollten Sie noch keinen Schein haben, klären wir gemeinsam, ob die Voraussetzungen für eine Antragstellung vorliegen.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 pb-16 pt-6">
+          <Reveal>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <span className="eyebrow">Prozesskostenhilfe</span>
+              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Verfahrens- und Prozesskostenhilfe</h2>
+              <p className="section-copy mt-4">
+                Gerichtliche Verfahren können mit Kosten verbunden sein, die nicht jeder ohne Weiteres aufbringen kann. Damit auch Menschen mit geringem Einkommen ihre Rechte vor Gericht wahrnehmen können, besteht die Möglichkeit, Verfahrenskostenhilfe (VKH) oder Prozesskostenhilfe (PKH) zu beantragen.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mx-auto max-w-6xl grid gap-5 md:grid-cols-2">
+            <Reveal>
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Was ist Verfahrens- bzw. Prozesskostenhilfe?</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Die Verfahrens- bzw. Prozesskostenhilfe ist eine staatliche Unterstützung für Personen, die die Kosten eines gerichtlichen Verfahrens nicht oder nur teilweise selbst tragen können. Sie ermöglicht es, ein Verfahren vor Gericht zu führen oder sich gegen eine Klage zu verteidigen, ohne dass die Kosten eine unüberwindbare Hürde darstellen.
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    Im Familienrecht spricht man in der Regel von Verfahrenskostenhilfe, während in anderen gerichtlichen Verfahren häufig der Begriff Prozesskostenhilfe verwendet wird. Inhaltlich handelt es sich jedoch um eine vergleichbare Form der staatlichen Unterstützung.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal delayClass="stagger-1">
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Voraussetzungen</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-3 text-sm text-muted-foreground">Das Gericht bewilligt Verfahrens- oder Prozesskostenhilfe, wenn</p>
+                  <ul className="space-y-2">
+                    {[
+                      "die persönlichen und wirtschaftlichen Verhältnisse die Übernahme der Kosten nicht oder nur teilweise erlauben,",
+                      "das beabsichtigte Verfahren ausreichende Erfolgsaussichten hat und",
+                      "die Rechtsverfolgung oder Rechtsverteidigung nicht mutwillig erscheint.",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    Zur Prüfung dieser Voraussetzungen muss eine Erklärung über die persönlichen und wirtschaftlichen Verhältnisse beim Gericht eingereicht werden.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal>
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Umfang der Unterstützung</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="mb-3 text-sm text-muted-foreground">Je nach Einkommens- und Vermögenssituation kann die Unterstützung</p>
+                  <ul className="space-y-2">
+                    {[
+                      "vollständig ohne Rückzahlung,",
+                      "mit monatlichen Raten oder",
+                      "teilweise",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-foreground/90">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    gewährt werden. Das Gericht kann die wirtschaftlichen Verhältnisse auch noch einige Jahre nach Abschluss des Verfahrens überprüfen.
+                  </p>
+                </CardContent>
+              </Card>
+            </Reveal>
+
+            <Reveal delayClass="stagger-1">
+              <Card className="premium-card h-full rounded-3xl">
+                <CardHeader>
+                  <CardTitle className="text-xl">Vertretung &amp; Unterstützung bei der Antragstellung</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Wird Verfahrens- oder Prozesskostenhilfe bewilligt, übernimmt die Staatskasse in der Regel die Gerichtskosten sowie — bei anwaltlicher Vertretung — die Kosten des eigenen Rechtsanwalts im gesetzlich vorgesehenen Umfang.
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    Gerne unterstütze ich Sie bei der Prüfung, ob die Voraussetzungen für Verfahrens- oder Prozesskostenhilfe vorliegen, sowie bei der Antragstellung und der Zusammenstellung der erforderlichen Unterlagen. Ziel ist es, Ihnen den Zugang zum Recht zu ermöglichen und Ihre Interessen auch dann wirksam zu vertreten, wenn die finanziellen Mittel begrenzt sind.
                   </p>
                 </CardContent>
               </Card>

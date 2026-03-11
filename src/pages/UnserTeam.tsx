@@ -13,7 +13,7 @@ const UnserTeam = () => {
     {
       name: "Sven Thamm",
       role: "Rechtsanwalt",
-      bio: "Als Rechtsanwalt berate und vertrete ich Mandantinnen und Mandanten in sozialrechtlichen Fragen — klar, verlässlich und auf Augenhöhe.",
+      bio: "Als Rechtsanwalt und gesetzlicher Betreuer berate und vertrete ich Mandantinnen und Mandanten in sozialrechtlichen Fragen — klar, verlässlich und auf Augenhöhe.",
       image: SvenThamm,
     },
     {
@@ -28,12 +28,7 @@ const UnserTeam = () => {
       bio: "Unterstützt bei Anfragen und organisatorischen Schritten mit ruhiger, verbindlicher Arbeitsweise und klaren Prioritäten.",
       image: HendrikGrönholdt,
     },
-    {
-      name: "Dennis Pieper",
-      role: "Entwickler",
-      bio: "Kümmert sich um IT-Dinge.",
-      image: Profilbild,
-    },
+
   ];
 
   return (
